@@ -1,0 +1,24 @@
+// Add gradle wrapper to project so that project may be installed on systems that don't have gradle installed with following command:
+// gradle wrapper --gradle-version 2.13
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    // compile: should be available during compile time
+    compile "joda-time:joda-time:2.2"
+    // providedCompile: dependencies provided by the container
+    // testCompile: used for compiling and running tests, but not required for building or running project's runtime code
+    testCompile "junit:junit:4.12"
+}
+
+jar {
+    baseName = 'gs-gradle'
+    version = '0.1.0'
+}
