@@ -2,14 +2,20 @@
 // gradle wrapper --gradle-version 2.13
 
 apply plugin: 'java'
+// make jar files runnable
+apply plugin: 'application'
+mainClassName = 'hello.HelloWorld'
 
+// tag::repositories[]
 repositories {
     mavenCentral()
 }
+// end::repositories[]
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+// tag::dependencies[]
 dependencies {
     // compile: should be available during compile time
     compile "joda-time:joda-time:2.2"
@@ -17,8 +23,14 @@ dependencies {
     // testCompile: used for compiling and running tests, but not required for building or running project's runtime code
     testCompile "junit:junit:4.12"
 }
+// end::dependencies[]
 
+// tag::jar[]
 jar {
     baseName = 'gs-gradle'
     version = '0.1.0'
 }
+// end::jar[]
+
+// tag::wrapper[]
+// end::wrapper[]
